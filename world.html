@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Created by Aksh</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#000;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Segoe UI,Arial,sans-serif;
+}
+
+.background{
+    position:absolute;
+    inset:0;
+}
+
+.particle{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    opacity:.4;
+    animation:float 8s linear infinite;
+}
+
+.container{
+    text-align:center;
+    z-index:10;
+}
+
+.ring{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    border:2px solid rgba(255,255,255,.15);
+    position:relative;
+    margin:auto;
+}
+
+.ring::before{
+    content:"";
+    position:absolute;
+    inset:-2px;
+    border-radius:50%;
+    border-top:2px solid white;
+    border-right:2px solid white;
+    animation:spin 1.6s linear infinite;
+    box-shadow:0 0 25px rgba(255,255,255,.7);
+}
+
+.title{
+    color:white;
+    margin-top:30px;
+    font-size:22px;
+    letter-spacing:4px;
+    opacity:0;
+    animation:fadeUp 2s forwards;
+}
+
+.subtitle{
+    color:rgba(255,255,255,.5);
+    margin-top:10px;
+    font-size:12px;
+    letter-spacing:3px;
+    opacity:0;
+    animation:fadeUp 2s .5s forwards;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(15px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+    }
+    to{
+        transform:translateY(-120px);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="background" id="bg"></div>
+
+<div class="container">
+    <div class="ring"></div>
+    <div class="title">Created by Aksh</div>
+    <div class="subtitle">Please Wait...</div>
+</div>
+
+<script>
+const bg = document.getElementById("bg");
+
+for(let i=0;i<40;i++){
+    const p=document.createElement("div");
+    p.classList.add("particle");
+    p.style.left=Math.random()*100+"%";
+    p.style.animationDuration=(5+Math.random()*8)+"s";
+    p.style.animationDelay=Math.random()*5+"s";
+    bg.appendChild(p);
+}
+
+setTimeout(()=>{
+    window.location.href="https://share.google/YOtYYmTS85dKQnqHX";
+},3500);
+</script>
+
+</body>
+</html>
