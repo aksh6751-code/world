@@ -1,0 +1,435 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Future Love Predictor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:black;
+}
+
+/* PAGE 1 */
+
+.page1{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:
+    radial-gradient(circle at top,#d8b4fe,#6d28d9,#000);
+    animation:bgMove 8s infinite alternate;
+}
+
+@keyframes bgMove{
+
+    0%{
+        filter:hue-rotate(0deg);
+    }
+
+    100%{
+        filter:hue-rotate(25deg);
+    }
+
+}
+
+.title{
+    color:white;
+    font-size:4rem;
+    text-shadow:0 0 30px #d8b4fe;
+    margin-bottom:20px;
+}
+
+.subtitle{
+    color:#ddd;
+    margin-bottom:40px;
+    font-size:1.1rem;
+}
+
+.btn{
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    font-size:1rem;
+    color:white;
+    background:linear-gradient(45deg,#9333ea,#d8b4fe);
+    box-shadow:0 0 25px #9333ea;
+    transition:0.4s;
+}
+
+.btn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 50px #d8b4fe;
+}
+
+/* PAGE 2 */
+
+.page2{
+    position:absolute;
+    top:0;
+    left:100%;
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#120018,#250035,#000);
+    transition:1s;
+}
+
+.form-box{
+    width:400px;
+    padding:40px;
+    border-radius:25px;
+    backdrop-filter:blur(20px);
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    box-shadow:0 0 40px rgba(216,180,254,0.4);
+    animation:glow 3s infinite alternate;
+}
+
+@keyframes glow{
+
+    from{
+        box-shadow:0 0 20px #9333ea;
+    }
+
+    to{
+        box-shadow:0 0 50px #d8b4fe;
+    }
+
+}
+
+.form-box h2{
+    color:white;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin-bottom:20px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:rgba(255,255,255,0.08);
+    color:white;
+    font-size:1rem;
+}
+
+/* PAGE 3 */
+
+.page3{
+    position:absolute;
+    top:0;
+    left:100%;
+    width:100%;
+    height:100vh;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    transition:1s;
+}
+
+.result{
+    color:white;
+    font-size:2rem;
+    text-align:center;
+    width:80%;
+    z-index:2;
+    animation:fade 2s ease;
+}
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* STARS */
+
+.stars span{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 5s infinite;
+}
+
+@keyframes twinkle{
+
+    0%,100%{
+        opacity:0.2;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+}
+
+/* CLICK EMOJI */
+
+@keyframes pop{
+
+    0%{
+        transform:scale(0.5);
+        opacity:0;
+    }
+
+    50%{
+        transform:scale(1.5);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-60px);
+        opacity:0;
+    }
+
+}
+
+/* FOOTER */
+
+.footer{
+    position:absolute;
+    bottom:45px;
+    width:100%;
+    text-align:center;
+    color:#d8b4fe;
+    font-size:0.95rem;
+    text-shadow:
+    0 0 10px #c084fc,
+    0 0 20px #9333ea,
+    0 0 40px #d8b4fe;
+    animation:footerGlow 2s infinite alternate;
+    z-index:10;
+}
+
+@keyframes footerGlow{
+
+    from{
+        opacity:0.7;
+    }
+
+    to{
+        opacity:1;
+        text-shadow:
+        0 0 15px #d8b4fe,
+        0 0 30px #9333ea,
+        0 0 50px #ffffff;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+
+<div class="page1">
+
+    <div class="title">
+        Future Love
+    </div>
+
+    <div class="subtitle">
+        Discover your destiny ✨
+    </div>
+
+    <button class="btn" onclick="openForm()">
+        Let's Go
+    </button>
+
+    <div class="footer">
+        Created by Aksh Srivastava who is not able to get his love 💜
+    </div>
+
+</div>
+
+<!-- PAGE 2 -->
+
+<div class="page2" id="page2">
+
+    <div class="form-box">
+
+        <h2>Type Your Name</h2>
+
+        <input type="text" id="yourName" placeholder="Your Name">
+
+        <input type="text" id="crushName" placeholder="Crush Name">
+
+        <button class="btn" style="width:100%;" onclick="checkFuture()">
+            Check Now
+        </button>
+
+    </div>
+
+    <div class="footer">
+        Created by Aksh Srivastava who is not able to get his love 💜
+    </div>
+
+</div>
+
+<!-- PAGE 3 -->
+
+<div class="page3" id="page3">
+
+    <div class="stars" id="stars"></div>
+
+    <div class="result" id="result"></div>
+
+    <div class="footer">
+        Created by Aksh Srivastava who is not able to get his love 💜
+    </div>
+
+</div>
+
+<script>
+
+function openForm(){
+
+    document.getElementById("page2").style.left="0";
+
+}
+
+for(let i=0;i<200;i++){
+
+    let star=document.createElement("span");
+
+    star.style.left=Math.random()*100+"%";
+    star.style.top=Math.random()*100+"%";
+
+    star.style.animationDuration=(Math.random()*5+2)+"s";
+
+    document.getElementById("stars").appendChild(star);
+
+}
+
+function checkFuture(){
+
+    let yourName=document.getElementById("yourName").value.trim().toLowerCase();
+
+    let crushName=document.getElementById("crushName").value.trim().toLowerCase();
+
+    if(yourName==="" || crushName===""){
+
+        alert("Please fill both names");
+        return;
+
+    }
+
+    let uniqueKey=yourName+"_"+crushName;
+
+    let oldAnswer=localStorage.getItem(uniqueKey);
+
+    document.getElementById("page3").style.left="0";
+
+    let message="";
+    let resultType="";
+
+    if(oldAnswer){
+
+        message="😊 I already answered you";
+        resultType=oldAnswer;
+
+    }else{
+
+        let random=Math.floor(Math.random()*2);
+
+        if(random===1){
+
+            message="💜 Yes, you'll get married with your crush ✨";
+            resultType="yes";
+
+            localStorage.setItem(uniqueKey,"yes");
+
+        }else{
+
+            message="🖤 No, you'll not get married with your crush... sorry bro <br><br>🙂 You deserve her, go work on yourself";
+
+            resultType="no";
+
+            localStorage.setItem(uniqueKey,"no");
+
+        }
+
+    }
+
+    document.getElementById("result").innerHTML=message;
+
+    let page3=document.getElementById("page3");
+
+    page3.onclick=function(e){
+
+        let emoji=document.createElement("div");
+
+        if(resultType==="yes"){
+
+            emoji.innerHTML="💜";
+
+        }else{
+
+            emoji.innerHTML="🙂";
+
+        }
+
+        emoji.style.position="absolute";
+        emoji.style.left=e.clientX+"px";
+        emoji.style.top=e.clientY+"px";
+        emoji.style.fontSize="2rem";
+        emoji.style.pointerEvents="none";
+        emoji.style.animation="pop 1s forwards";
+
+        page3.appendChild(emoji);
+
+        setTimeout(()=>{
+
+            emoji.remove();
+
+        },1000);
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
+```
